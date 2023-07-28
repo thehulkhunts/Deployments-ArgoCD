@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-rollout-example
+spec:
+  maxReplicas: 6
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: rollout-bluegreen
+  targetCPUUtilizationPercentage: 10
+
+
+
+
+
